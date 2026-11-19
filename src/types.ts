@@ -31,3 +31,11 @@ export type TrainingWithCustomer = {
     activity: string;
     customer: Customer | null;
 }
+
+
+export type TrainingData = {
+    date: string;
+    activity: string;
+    duration: number;
+    customer: string;
+}
