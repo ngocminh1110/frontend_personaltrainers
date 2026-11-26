@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { DataGrid } from '@mui/x-data-grid';
+import { DataGrid, gridDataRowIdsSelector } from '@mui/x-data-grid';
 import type { GridColDef, GridRenderCellParams } from '@mui/x-data-grid';
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -98,6 +98,14 @@ function CustomerList() {
                     disableRowSelectionOnClick
                     showToolbar
                     slotProps={{
+                        toolbar: {
+                            csvOptions: {
+                                fileName: 'customers',
+                                utf8WithBom: true,
+                                getRowsToExport: ({ apiRef }) => gridDataRowIdsSelector(apiRef),
+                            },
+                            printOptions: { disableToolbarButton: true },
+                        },
                         columnsManagement: {
                             getTogglableColumns: (allColumns) =>
                                 allColumns.filter(column => column.hideable !== false).map(column => column.field),
