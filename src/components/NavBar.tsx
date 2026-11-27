@@ -17,6 +17,9 @@ function NavBar() {
                 <Button color="inherit" component={NavLink} to="/trainings">
                     Trainings
                 </Button>
+                <Button color="inherit" component={NavLink} to="/calendar">
+                    Calendar
+                </Button>
             </Toolbar>
         </AppBar>
     );
